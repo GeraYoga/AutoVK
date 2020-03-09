@@ -67,7 +67,7 @@ namespace GY.AutoVK
 
         private static async void Reg(IRocketPlayer caller, string vk, string code)
         {
-            var isSuccessful = await RequestUtil.SendConfirmMsg(vk, code);
+            var isSuccessful = await RequestUtil.SendMessage(vk, code, "vk_confirm");
 
             if (!isSuccessful)
             {

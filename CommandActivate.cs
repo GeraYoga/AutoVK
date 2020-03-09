@@ -51,6 +51,7 @@ namespace GY.AutoVK
             
             R.Permissions.AddPlayerToGroup(Instance.Configuration.Instance.RewardGroup, caller);
             DataBaseUtil.UpdateState(player.CSteamID.m_SteamID, true);
+            await RequestUtil.SendMessage(getInfo.Vkontakte, "", "message_thx");
             UnturnedChat.Say(caller, Instance.Translate("player_added"), Color.magenta);
             
         }

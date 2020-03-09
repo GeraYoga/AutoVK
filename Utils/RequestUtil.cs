@@ -25,13 +25,13 @@ namespace GY.AutoVK.Utils
             return playerid;
         }
         
-        public static async Task<bool> SendConfirmMsg(string vk, string code)
+        public static async Task<bool> SendMessage(string vk, string code, string key)
         {
             var token = Instance.Configuration.Instance.AccessToken;
             const string url = "https://api.vk.com/method/messages.send";
             var wc = new WebClient();
             wc.QueryString.Add("user_id", $"{vk}");
-            wc.QueryString.Add("message", Instance.Translate("vk_confirm", code));
+            wc.QueryString.Add("message", Instance.Translate(key, code));
             wc.QueryString.Add("access_token", $"{token}");
             wc.QueryString.Add("version", "5.92");
             wc.QueryString.Add("v", "5.92");
