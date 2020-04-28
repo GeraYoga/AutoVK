@@ -11,7 +11,7 @@ using static GY.AutoVK.AutoVk;
 
 namespace GY.AutoVK.Utils
 {
-    public class DataBaseUtil
+    public static class DataBaseUtil
     {
         public static VkModel GetPlayer(ulong steam)
         {

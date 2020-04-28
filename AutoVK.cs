@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Net;
 using System.Threading.Tasks;
 using GY.AutoVK.Utils;
 using Rocket.API.Collections;
@@ -15,7 +16,13 @@ namespace GY.AutoVK
         protected override void Load()
         {
             Instance = this;
+            ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, errors) => true;
             U.Events.OnPlayerConnected += EventsOnOnPlayerConnected;
+
+            if (!System.IO.Directory.Exists("GY.DataBase"))
+            {
+                System.IO.Directory.CreateDirectory("GY.DataBase");
+            }
         }
 
         protected override void Unload()

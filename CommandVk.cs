@@ -24,8 +24,7 @@ namespace GY.AutoVK
         public async void Execute(IRocketPlayer caller, string[] command)
         {
             var player = (UnturnedPlayer) caller;
-            ServicePointManager.ServerCertificateValidationCallback += (sender, certificate, chain, errors) => true;
-            
+
             if (R.Permissions.GetGroup(Instance.Configuration.Instance.RewardGroup) == null)
             {
                 UnturnedChat.Say(caller, Instance.Translate("group_not_found"), Color.red);
